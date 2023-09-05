@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+
+
+<style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-image: url('{% static 'images/color.jpg' %}');
+      background-size: cover;
+      background-position: center;
+       background-attachment: fixed;
+    }
+
+    .container {
+      width: 350px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: red;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Travelapp Login</h1>
+    <form action="login" method="POST">
+      {% csrf_token %}
+
+      <label>Enter Your UserName</label>
+      <input type="text" name="user name" placeholder="Username" required><br>
+        <label>Enter Password</label>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+{% for msg in messages %}
+      {{msg}}
+  </div>
+
+{% endfor %}
+</body>
+</html>

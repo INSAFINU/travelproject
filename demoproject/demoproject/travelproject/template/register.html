@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+  <style>
+    form{display: inline-block;
+        padding: 15px;
+        text-align: center;background-color:#f1f1f1;
+
+
+
+        background-size: cover;
+        background-position: center;
+        }
+      .container {
+      max-width: 400px;
+      text-align: center;
+
+      background-color: #ff6347;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    body {
+       font-family: Arial, sans-serif;
+
+      padding: 20px;
+      display: flex;
+      background-image: url('{% static 'images/color.jpg' %}');
+      background-size: cover;
+      background-position: center;
+       background-attachment: fixed;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      text-align: center;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+  </style>
+
+<body>
+<div class="container">
+<h2>Registration Form</h2>
+<form method="post"  action="register">
+
+      {% csrf_token %}
+      <label>Enter Your UserName</label>
+      <input type="text" name="user name"  placeholder="Enter User  Name"><br>
+      <label>Enter Your First Name</label>
+      <input type="text" name="First_name" placeholder="Enter Your First Name"><br>
+      <label>Enter Your Last Name</label>
+      <input type="text" name="Last_name" placeholder="Enter Your Last Name"><br>
+      <label>Enter Your Email Address</label>
+      <input type="text" name="Email_address" placeholder="Enter Your Email Address"><br>
+      <label>Enter Password</label>
+      <input type="text" name="Password" placeholder="Enter Your Password"><br>
+      <label>Confirm Password</label>
+      <input type="text" name="ConfirmPassword" placeholder="Confirm Password"><br>
+      <input type="submit"><br>
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</div>
+</body>
+</html>
